@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DialogueNode : Node
 {
+    public bool isTree = true;
     public string GUID;
     public string DialogueText;
     public bool EntryPoint = false;
