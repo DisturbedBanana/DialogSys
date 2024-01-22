@@ -27,12 +27,6 @@ public class DialogController : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        //txtNameLeft.text = dialog.nameLeft;
-        //imgSpriteLeft.sprite = dialog.spriteLeft;
-
-        //txtNameRight.text = dialog.nameRight;
-        //imgSpriteRight.sprite = dialog.spriteRight;
-        
         _dialog = dialog;
 
         RefreshBox();
@@ -42,11 +36,14 @@ public class DialogController : MonoBehaviour
     {
         DialogConfig.SentenceConfig sentence = _dialog.sentenceConfig[_idCurrentSentence];
 
-        DialogConfig.SpeakerConfig speaker = _dialog.speakers[0];
+        DialogConfig.SpeakerConfig speaker = _dialog.speakers.Find(x => x.speakerData.id == sentence.speakerData.id);
 
         switch (speaker.position)
         {
             case DialogConfig.SpeakerConfig.POSITION.LEFT:
+                txtNameLeft.text = speaker.speakerData.label;
+                imgSpriteLeft.sprite = speaker.speakerData.statuses[0].icon;
+
                 txtNameLeft.color = Color.black;
                 txtNameRight.color = Color.clear;
                 
@@ -55,6 +52,9 @@ public class DialogController : MonoBehaviour
                 break;
 
             case DialogConfig.SpeakerConfig.POSITION.RIGHT:
+                txtNameRight.text = speaker.speakerData.label;
+                imgSpriteRight.sprite = speaker.speakerData.statuses[0].icon;
+
                 txtNameLeft.color = Color.clear;
                 txtNameRight.color = Color.black;
 
@@ -63,7 +63,8 @@ public class DialogController : MonoBehaviour
                 break;
         }
 
-        txtSentence.text = sentence.sentence;
+
+        txtSentence.text = _dialog.table.Find_KEY(sentence.key).FR;
 
         _audioSource.Stop();
         

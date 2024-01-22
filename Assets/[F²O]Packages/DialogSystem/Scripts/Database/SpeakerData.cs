@@ -23,5 +23,4 @@ public class SpeakerData
         public Sprite icon;
         public AudioClip audioClip;
     }
- 
 }
