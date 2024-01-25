@@ -8,9 +8,15 @@ public class MagnifyingLensCombinations : ScriptableObject
 {
     public List<LensCombination> CombinationsList = new List<LensCombination>();
 
-    public bool CheckCombination(List<string> currentCombination)
+    public bool CheckCombination(List<GameObject> givenCombination)
     {
-        if (currentCombination[0] == currentCombination[1])
+        List<string> givenCombinationTags = new List<string>();
+        foreach (GameObject item in givenCombination)
+        {
+            givenCombinationTags.Add(item.tag);
+        }
+
+        if (givenCombinationTags[0] == givenCombinationTags[1])
         {
             Debug.Log("Can't combine the same item");
             return false;
@@ -18,11 +24,11 @@ public class MagnifyingLensCombinations : ScriptableObject
 
         foreach (LensCombination combination in CombinationsList)
         {
-            if (combination.ItemTags.Count != currentCombination.Count) continue;
+            if (combination.ItemTags.Count != givenCombinationTags.Count) continue;
             bool isCombination = true;
             for (int i = 0; i < combination.ItemTags.Count; i++)
             {
-                if (!combination.ItemTags.Contains(currentCombination[i]))
+                if (!combination.ItemTags.Contains(givenCombinationTags[i]))
                 {
                     isCombination = false;
                     break;

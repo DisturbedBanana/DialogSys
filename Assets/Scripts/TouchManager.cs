@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,13 +13,20 @@ public class TouchManager : MonoBehaviour
     [SerializeField] LayerMask _objectLayer;
     [SerializeField] MagnifyingLensCombinations _magnifyingLensCombinations;
 
+    [Space(10f)]
+    [SerializeField] private Material _baseObjectMaterial;
+    [SerializeField] private Material _selectedObjectMaterial;
+
     InteractableObject _selectedObject;
+    private InteractableObject _lastSelectedObject;
 
     private bool _isUsingLens = false;
     private SpriteRenderer _lensSprite;
     private bool _isPreviewingObject = false;
+    private Vector2 _basePosition;
+    private Vector2 _previewPosition = new Vector2(0, 1.5f);
 
-    private List<string> _currentCombination = new List<string>();
+    private List<GameObject> _currentCombination = new List<GameObject>();
 
     public static TouchManager Instance { get; private set; }
 
@@ -33,6 +41,7 @@ public class TouchManager : MonoBehaviour
         EnhancedTouchSupport.Enable();
         ETouch.onFingerDown += OnInputStarted;
         ETouch.onFingerUp += OnInputStopped;
+        DOTween.Init();
     }
 
     private void OnDisable()
@@ -42,10 +51,21 @@ public class TouchManager : MonoBehaviour
 
     private void OnInputStarted(Finger finger)
     {
+        if (_isPreviewingObject)
+        {
+            _lastSelectedObject.transform.DOMove(_basePosition, 0.5f);
+            _lastSelectedObject.transform.DOScale(1f, 0.5f);
+            _isPreviewingObject = false;
+            return;
+        }
+        
         Vector2 fingerPosition = Camera.main.ScreenToWorldPoint(finger.currentTouch.screenPosition);
         Collider2D collider2D = GetClosestCollider(Physics2D.OverlapCircleAll(fingerPosition, _checkSize, _objectLayer), fingerPosition);
-        if (collider2D == null) return;
+        
+        if (collider2D == null) return; 
+        
         _selectedObject = collider2D.GetComponent<InteractableObject>();
+        SpriteRenderer _selectedObjectRenderer = _selectedObject.GetComponent<SpriteRenderer>();
         if (_isUsingLens)
         {
             if (_selectedObject.gameObject.CompareTag("Lens"))
@@ -55,7 +75,8 @@ public class TouchManager : MonoBehaviour
                 return;
             }
 
-            _currentCombination.Add(_selectedObject.gameObject.tag);
+            _currentCombination.Add(_selectedObject.gameObject);
+            _selectedObjectRenderer.material = _selectedObjectMaterial;
             if (_currentCombination.Count == 2)
             {
                 if (_magnifyingLensCombinations.CheckCombination(_currentCombination))
@@ -68,21 +89,33 @@ public class TouchManager : MonoBehaviour
                 }
                 _isUsingLens = false;
                 _lensSprite.color = Color.white;
+                foreach (var item in _currentCombination)
+                {
+                    item.GetComponent<SpriteRenderer>().material = _baseObjectMaterial;
+                }
                 _currentCombination.Clear();
             }
             
         }
         else
         {
-            if (_selectedObject.gameObject.CompareTag("Lens"))
+            if (!_isPreviewingObject)
             {
-                _lensSprite = _selectedObject.GetComponent<SpriteRenderer>();
-                _isUsingLens = true;
-                _lensSprite.color = Color.red;
-            }
-            else
-            {
-                _isPreviewingObject = true;
+                if (_selectedObject.gameObject.CompareTag("Lens"))
+                {
+                    _lensSprite = _selectedObject.GetComponent<SpriteRenderer>();
+                    _isUsingLens = true;
+                    _lensSprite.color = Color.red;
+                }
+                
+                else
+                {
+                    _basePosition = _selectedObject.transform.position;
+                    _selectedObject.GetComponent<Transform>().DOMove(_previewPosition, 2f);
+                    _selectedObject.GetComponent<Transform>().DOScale(1.5f, 2f);
+                    _lastSelectedObject = _selectedObject;
+                    _isPreviewingObject = true;
+                }
             }
         }
 
@@ -98,6 +131,7 @@ public class TouchManager : MonoBehaviour
     {
         if (colliders is null || colliders.Length == 0) return null;
         int closestIndex = 0;
+        
         for (int i = 1; i < colliders.Length; i++)
         {
             if (Vector2.Distance(colliders[i].transform.position, position) 
@@ -106,6 +140,7 @@ public class TouchManager : MonoBehaviour
                 closestIndex = i;
             }
         }
+        
         return colliders[closestIndex];
     }
 }
