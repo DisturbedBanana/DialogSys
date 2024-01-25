@@ -14,8 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CombinationsList:
   - ItemTags:
-    - Stylo
-    - Papier
-  - ItemTags:
-    - Miroir
-    - Chaussure
+    - TestItem1
+    - TestItem2
