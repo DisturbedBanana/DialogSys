@@ -9,11 +9,13 @@ using ETouch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 public class TouchManager : MonoBehaviour
 {
     [Header("Parameters")]
-    [SerializeField] float _checkSize;
+    [SerializeField] float _touchRange;
+    [SerializeField] float _touchedObjectScaleMultiplier;
+    [Space(10f)]
     [SerializeField] LayerMask _objectLayer;
     [SerializeField] MagnifyingLensCombinations _magnifyingLensCombinations;
 
-    [Space(10f)]
+    [Space(20f), Header("Materials")]
     [SerializeField] private Material _baseObjectMaterial;
     [SerializeField] private Material _selectedObjectMaterial;
 
@@ -24,7 +26,8 @@ public class TouchManager : MonoBehaviour
     private SpriteRenderer _lensSprite;
     private bool _isPreviewingObject = false;
     private Vector2 _basePosition;
-    private Vector2 _previewPosition = new Vector2(0, 1.5f);
+    private Vector2 _baseScale;
+    private Vector2 _previewPosition = new Vector2(0, 0);
 
     private List<GameObject> _currentCombination = new List<GameObject>();
 
@@ -54,13 +57,13 @@ public class TouchManager : MonoBehaviour
         if (_isPreviewingObject)
         {
             _lastSelectedObject.transform.DOMove(_basePosition, 0.5f);
-            _lastSelectedObject.transform.DOScale(1f, 0.5f);
+            _lastSelectedObject.transform.DOScale(_baseScale, 0.5f);
             _isPreviewingObject = false;
             return;
         }
         
         Vector2 fingerPosition = Camera.main.ScreenToWorldPoint(finger.currentTouch.screenPosition);
-        Collider2D collider2D = GetClosestCollider(Physics2D.OverlapCircleAll(fingerPosition, _checkSize, _objectLayer), fingerPosition);
+        Collider2D collider2D = GetClosestCollider(Physics2D.OverlapCircleAll(fingerPosition, _touchRange, _objectLayer), fingerPosition);
         
         if (collider2D == null) return; 
         
@@ -112,8 +115,9 @@ public class TouchManager : MonoBehaviour
                 {
                     _basePosition = _selectedObject.transform.position;
                     _selectedObject.GetComponent<Transform>().DOMove(_previewPosition, 2f);
-                    _selectedObject.GetComponent<Transform>().DOScale(1.5f, 2f);
+                    _selectedObject.GetComponent<Transform>().DOScale(_touchedObjectScaleMultiplier, 2f);
                     _lastSelectedObject = _selectedObject;
+                    _baseScale = _selectedObject.transform.localScale;
                     _isPreviewingObject = true;
                 }
             }

@@ -16,3 +16,9 @@ MonoBehaviour:
   - ItemTags:
     - TestItem1
     - TestItem2
+  - ItemTags:
+    - TestItem3
+    - TestItem4
+  - ItemTags:
+    - TestItem1
+    - TestItem2
