@@ -11,6 +11,7 @@ public class TouchManager : MonoBehaviour
     [Header("Parameters")]
     [SerializeField] float _touchRange;
     [SerializeField] float _touchedObjectScaleMultiplier;
+    [SerializeField] float _touchedObjectScaleSpeed;
     [Space(10f)]
     [SerializeField] LayerMask _objectLayer;
     [SerializeField] MagnifyingLensCombinations _magnifyingLensCombinations;
@@ -27,6 +28,7 @@ public class TouchManager : MonoBehaviour
     private bool _isPreviewingObject = false;
     private Vector2 _basePosition;
     private Vector2 _baseScale;
+    private Vector2 _previewScale;
     private Vector2 _previewPosition = new Vector2(0, 0);
 
     private List<GameObject> _currentCombination = new List<GameObject>();
@@ -56,8 +58,8 @@ public class TouchManager : MonoBehaviour
     {
         if (_isPreviewingObject)
         {
-            _lastSelectedObject.transform.DOMove(_basePosition, 0.5f);
-            _lastSelectedObject.transform.DOScale(_baseScale, 0.5f);
+            _lastSelectedObject.transform.DOMove(_basePosition, _touchedObjectScaleSpeed);
+            _lastSelectedObject.transform.DOScale(_baseScale, _touchedObjectScaleSpeed);
             _isPreviewingObject = false;
             return;
         }
@@ -110,14 +112,19 @@ public class TouchManager : MonoBehaviour
                     _isUsingLens = true;
                     _lensSprite.color = Color.red;
                 }
+                else if (_selectedObject.gameObject.CompareTag("Help"))
+                {
+                    Debug.Log("This is the help menu");
+                }
                 
                 else
                 {
                     _basePosition = _selectedObject.transform.position;
-                    _selectedObject.GetComponent<Transform>().DOMove(_previewPosition, 2f);
-                    _selectedObject.GetComponent<Transform>().DOScale(_touchedObjectScaleMultiplier, 2f);
+                    _selectedObject.GetComponent<Transform>().DOMove(_previewPosition, _touchedObjectScaleSpeed);
+                    _selectedObject.GetComponent<Transform>().DOScale(_touchedObjectScaleMultiplier, _touchedObjectScaleSpeed);
                     _lastSelectedObject = _selectedObject;
                     _baseScale = _selectedObject.transform.localScale;
+                    _previewScale = _baseScale * _touchedObjectScaleMultiplier;
                     _isPreviewingObject = true;
                 }
             }

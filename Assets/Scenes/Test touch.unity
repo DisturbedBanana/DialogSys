@@ -123,6 +123,103 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &331274282
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1343082820437843780, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.31057
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343082820437843780, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.31057
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343082820437843780, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.31057
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343082820437843780, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343082820437843780, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343082820437843780, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343082820437843780, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343082820437843780, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343082820437843780, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343082820437843780, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343082820437843780, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343082820437843780, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1343082820437843780, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3084446353846699487, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_Name
+      value: item1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3084446353846699487, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_TagString
+      value: Help
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443075217801785921, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 67f9680fb9942ea46975c94d4c913bc5, type: 3}
+    - target: {fileID: 5443075217801785921, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443075217801785921, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443075217801785921, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8545520729957085690, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_Radius
+      value: 2.8176966
+      objectReference: {fileID: 0}
+    - target: {fileID: 8545520729957085690, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.04659668
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 55b4a692207dd4e4bb467ce476513e6c, type: 3}
 --- !u!1 &386890737
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,13 +644,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 414504504843455164, guid: ee4e939c10248374fb60f95737526f87, type: 3}
+      propertyPath: _touchedObjectScaleSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4746644840847936036, guid: ee4e939c10248374fb60f95737526f87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.36703336
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4746644840847936036, guid: ee4e939c10248374fb60f95737526f87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.33935228
+      value: 4.36
       objectReference: {fileID: 0}
     - target: {fileID: 4746644840847936036, guid: ee4e939c10248374fb60f95737526f87, type: 3}
       propertyPath: m_LocalPosition.z
@@ -588,8 +689,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5055227055100425446, guid: ee4e939c10248374fb60f95737526f87, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 5055227055100425446, guid: ee4e939c10248374fb60f95737526f87, type: 3}
       propertyPath: m_Name
       value: TouchManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055227055100425446, guid: ee4e939c10248374fb60f95737526f87, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -662,3 +771,4 @@ SceneRoots:
   - {fileID: 1463708626}
   - {fileID: 386890739}
   - {fileID: 4138466504821067629}
+  - {fileID: 331274282}
