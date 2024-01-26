@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class SentencesParserSystem
+public class SentencesParserSystem 
 {
 	public class Row
 	{
