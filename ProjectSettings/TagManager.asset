@@ -3,12 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Lens
+  - TestItem1
+  - TestItem2
+  - Help
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - InteractableObject
   - Water
   - UI
   - 
