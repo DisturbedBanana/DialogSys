@@ -9,18 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d156880cf8a22bb4dbc6d9883f43243d, type: 3}
+  m_Script: {fileID: 11500000, guid: e04c4036782c85146b5308a2513efa6c, type: 3}
   m_Name: bruh
   m_EditorClassIdentifier: 
   dialogName: bruh
   Speaker1: 
   Speaker2: 
-  SentencesKEYS:
-  - BJR
-  - ENCORE
-  - OTHER_KEY_2
-  _availableKeys:
-  - BJR
-  - ENCORE
-  - OTHER_KEY_2
-  csv: {fileID: 4900000, guid: c3508121a355b3e4d8e6b33396de656d, type: 3}
+  SentencesKEYS: []
+  _availableKeys: []
+  csv: {fileID: 4900000, guid: bc8644090611fac4e967e03107de0a56, type: 3}

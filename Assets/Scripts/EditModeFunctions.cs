@@ -13,7 +13,7 @@ public class EditModeFunctions : EditorWindow
 
     private void OnGUI()
     {
-        GameDesignerDialogFriend gdFriend = ScriptableObject.CreateInstance<GameDesignerDialogFriend>();
+        DialogMaker gdFriend = ScriptableObject.CreateInstance<DialogMaker>();
 
         if (GUILayout.Button("Run Function"))
         {

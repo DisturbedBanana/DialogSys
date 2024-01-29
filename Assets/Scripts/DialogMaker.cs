@@ -8,8 +8,8 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.Rendering.DebugUI;
 
-[CreateAssetMenu(fileName = "GameDesignerDialogDesigner", menuName = "Scripts/ScriptableObjects", order = 1)]
-public class GameDesignerDialogFriend : ScriptableObject
+[CreateAssetMenu(fileName = "DialogMaker", menuName = "Scripts/DialogMaker", order = 1)]
+public class DialogMaker : ScriptableObject
 {
     [Header("Change file name  : Write name then click button at the bottom")]
 
@@ -49,18 +49,10 @@ public class GameDesignerDialogFriend : ScriptableObject
     }
 
     public List<Row> rowList = new();
-     
-
-    public enum KEYS
-    {
-        
-    }
 
     [Button("Populate list with CSV keys")]
     public void Load()
     {
-        csv = (TextAsset)AssetDatabase.LoadAssetAtPath("Assets/MyData/Sentences1.csv", typeof(TextAsset));
-
         rowList.Clear();
         string[][] grid = CsvParser2.Parse(csv.text);
         for (int i = 1; i < grid.Length; i++)

@@ -1,4 +1,4 @@
-ID,KEY,FR,EN,SP
-0,Default,Default_FR,Default_EN,Default_SP
-1,Bonjour,Quelle magnifique journee n'est-ce pas?,"What a wonderful day, isn't it?","Qué día tan maravilloso, ¿verdad?"
-2,AuRevoir,A la prochaine !,See you next time!,¡Hasta la próxima!
+ID;KEY;FR;EN;SP
+0;Default;Default_FR;Default_EN;Default_SP
+1;Bonjour;Quelle magnifique journee n'est-ce pas?;"What a wonderful day; isn't it?";"Que dia tan maravilloso; verdad?"
+2;AuRevoir;A la prochaine !;See you next time!;Hasta la proxima!

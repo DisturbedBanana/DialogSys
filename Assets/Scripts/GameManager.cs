@@ -44,8 +44,8 @@ public class GameManager : MonoBehaviour
     [Button("test dialog")]
     public void PlayDialog(string dialogName = "bruh")
     {
-        GameDesignerDialogFriend gdfriend = null;
-        GameDesignerDialogFriend[] list = Resources.FindObjectsOfTypeAll<GameDesignerDialogFriend>();
+        DialogMaker gdfriend = null;
+        DialogMaker[] list = Resources.FindObjectsOfTypeAll<DialogMaker>();
 
         foreach (var item in list)
         {
@@ -105,8 +105,9 @@ public class GameManager : MonoBehaviour
 
     private void PrintText()
     {
-        _text.TypeText(_dialogStrings.Dequeue());
+        if (_dialogStrings.Count == 0) return;
 
+        _text.TypeText(_dialogStrings.Dequeue());
     }
 
     private void HandleCharacterPrinted(string printedCharacter)
