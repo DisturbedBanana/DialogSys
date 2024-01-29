@@ -24,7 +24,7 @@ MonoBehaviour:
     RotationStrength: 15
     ScaleStrength: 0
   - Name: FullShake
-    xPosStrength: 3
-    yPosStrength: 3
-    RotationStrength: 20
+    xPosStrength: 2.44
+    yPosStrength: 2.36
+    RotationStrength: 7.5
     ScaleStrength: 0.3

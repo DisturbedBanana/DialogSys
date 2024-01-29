@@ -15,9 +15,12 @@ MonoBehaviour:
   dialogName: bruh
   Speaker1: 
   Speaker2: 
-  SentencesKEYS: []
+  SentencesKEYS:
+  - BJR
+  - ENCORE
+  - OTHER_KEY_2
   _availableKeys:
   - BJR
-  - OTHER_KEY
+  - ENCORE
   - OTHER_KEY_2
   csv: {fileID: 4900000, guid: c3508121a355b3e4d8e6b33396de656d, type: 3}

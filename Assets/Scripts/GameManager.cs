@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     private Button printNextButton;
 
     private Queue<string> _dialogStrings = new Queue<string>();
-    private Languages _language = Languages.HUH;
+    private Languages _language = Languages.FR;
 
     public Languages Language { get => _language; set => _language = value; }
 
