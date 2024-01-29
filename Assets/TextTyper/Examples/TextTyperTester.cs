@@ -27,7 +27,7 @@
         [SerializeField]
         private Toggle pauseGameToggle;
 
-        private Queue<string> dialogueLines = new Queue<string>();
+        public Queue<string> dialogueLines = new Queue<string>();
 
         [SerializeField]
         [Tooltip("The text typer element to test typing with")]

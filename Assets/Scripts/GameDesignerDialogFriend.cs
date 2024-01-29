@@ -3,30 +3,41 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEngine.Rendering.DebugUI;
 
 [CreateAssetMenu(fileName = "GameDesignerDialogDesigner", menuName = "Scripts/ScriptableObjects", order = 1)]
 public class GameDesignerDialogFriend : ScriptableObject
 {
-    [Foldout("pas toucher GD")]
-    [SerializeField] TextAsset csv;
+    [Header("Change file name  : Write name then click button at the bottom")]
 
-    //[Button("Load CSV")] private void Load() { }
-
+    [SerializeField] private string dialogName;
+    [Button("Update File Name")]
+    public void ChangeFileName()
+    {
+        AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(this), dialogName);
+    }
+    [HorizontalLine(color: EColor.Blue)]
 
     [Header("SPEAKER 1 IS THE FIRST ONE TO TALK, FROM THERE IT SWAPS BETWEEN EACH SENTENCE")]
     [Header("INPUT THE PLAIN NAME OF THE SPEAKER, EXAMPLE : NICOLAS")]
     [Space(30)]
     public string Speaker1;
     public string Speaker2;
+    [HorizontalLine(color: EColor.Blue)]
 
     [Space(30)]
     [Header("PLEASE INPUT THE KEYS FOR THE SENTENCES")]
-    [Space(30)]
-    //public KEYS[] SentencesID;
-    [Options("options")] public string selection;
-    public List<String> _keysID = new List<string>();
+    public string[] SentencesKEYS;
     
+    [Space(30)]
+    [ReadOnly] public List<String> _availableKeys = new List<string>();
+    [HorizontalLine(color: EColor.Red)]
+
+    [Foldout("pas toucher GD")]
+    [SerializeField] TextAsset csv;
 
     public class Row
     {
@@ -45,6 +56,7 @@ public class GameDesignerDialogFriend : ScriptableObject
         
     }
 
+    [Button("Populate list with CSV keys")]
     public void Load()
     {
         csv = (TextAsset)AssetDatabase.LoadAssetAtPath("Assets/MyData/Sentences1.csv", typeof(TextAsset));
@@ -65,14 +77,20 @@ public class GameDesignerDialogFriend : ScriptableObject
         AddIDsToEnum();
     }
 
-    private void AddIDsToEnum()
+    [Button("Clear List")]
+    public void ClearList()
     {
-        Debug.Log(rowList.Count);
-        
-        foreach (Row row in rowList)
-        {
-            _keysID.Add(row.ID);
-        }
+        _availableKeys.Clear();
     }
 
+    private void AddIDsToEnum()
+    {   
+        foreach (Row row in rowList)
+        {
+            if (!_availableKeys.Contains(row.KEY))
+            {
+                _availableKeys.Add(row.KEY);
+            }
+        }
+    }
 }

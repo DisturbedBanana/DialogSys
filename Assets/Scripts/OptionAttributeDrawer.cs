@@ -25,11 +25,15 @@ public class OptionAttributeDrawer : PropertyDrawer
         SerializedProperty options = property.serializedObject.FindProperty(optionAttribute.OptionsName);
         List<string> optionList = new List<string>();
 
-        for (int i = 0; i < options.arraySize; i++)
+        if (options != null)
         {
-            SerializedProperty name = options.GetArrayElementAtIndex(i);
-            optionList.Add(name.stringValue);
+            for (int i = 0; i < options.arraySize; i++)
+            {
+                SerializedProperty name = options.GetArrayElementAtIndex(i);
+                optionList.Add(name.stringValue);
+            }
         }
+
 
         EditorGUI.BeginProperty(position, label, property);
 

@@ -22,3 +22,6 @@ MonoBehaviour:
   - ItemTags:
     - TestItem1
     - TestItem2
+  - ItemTags:
+    - TestItem1
+    - TestItem2

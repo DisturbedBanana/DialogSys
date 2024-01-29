@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d156880cf8a22bb4dbc6d9883f43243d, type: 3}
-  m_Name: ScriptableObjects
+  m_Name: GameDesignerDialogDesigner 1
   m_EditorClassIdentifier: 
-  csv: {fileID: 4900000, guid: c3508121a355b3e4d8e6b33396de656d, type: 3}
+  dialogName: 
   Speaker1: 
   Speaker2: 
-  selection: 
-  _keysID:
-  - 0
-  - 1
-  - 2
+  SentencesKEYS: []
+  _availableKeys:
+  - BJR
+  - OTHER_KEY
+  - OTHER_KEY_2
+  csv: {fileID: 4900000, guid: c3508121a355b3e4d8e6b33396de656d, type: 3}
