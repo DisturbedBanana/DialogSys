@@ -10,11 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e04c4036782c85146b5308a2513efa6c, type: 3}
-  m_Name: bruh
+  m_Name: swag
   m_EditorClassIdentifier: 
-  dialogName: bruh
-  Speaker1: 
-  Speaker2: 
-  SentencesKEYS: []
-  _availableKeys: []
+  dialogName: swag
+  Speaker: 1
+  SentencesKEYS:
+  - Default
+  - Bonjour
+  - AuRevoir
+  _availableKeys:
+  - Default
+  - Bonjour
+  - AuRevoir
   csv: {fileID: 4900000, guid: bc8644090611fac4e967e03107de0a56, type: 3}

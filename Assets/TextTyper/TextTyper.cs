@@ -16,7 +16,7 @@
         /// <summary>
         /// The print delay setting. Could make this an option some day, for fast readers.
         /// </summary>
-        private const float PrintDelaySetting = 0.02f;
+        private const float PrintDelaySetting = 0.05f;
 
         /// <summary>
         /// Default delay setting will be multiplied by this when the character is a punctuation mark

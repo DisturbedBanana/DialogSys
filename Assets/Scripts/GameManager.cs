@@ -2,15 +2,25 @@ using NaughtyAttributes;
 using RedBlueGames.Tools.TextTyper;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
+    public enum SPEAKERS
+    {
+        MOM,
+        DAD,
+        GIRL,
+        HIDDEN,
+        NARRATOR
+    }
+
     public enum Languages
     {
-        HUH,
         FR,
         EN,
         SP
@@ -20,14 +30,17 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] TextTyper _text;
     [SerializeField] AudioClip _typingSound ;
+    [SerializeField] Button _printNextButton;
+    [SerializeField] Image _speakerImage;
 
-    [SerializeField]
-    private Button printNextButton;
-
+    [SerializeField] private Sprite _momSprite;
+    [SerializeField] private Sprite _dadSprite;
+    [SerializeField] private Sprite _girlSprite;
     private Queue<string> _dialogStrings = new Queue<string>();
     private Languages _language = Languages.FR;
-
     public Languages Language { get => _language; set => _language = value; }
+
+    private bool _isTextActive = false;
 
     private void Awake()
     {
@@ -38,34 +51,65 @@ public class GameManager : MonoBehaviour
     {
         this._text.PrintCompleted.AddListener(this.HandlePrintCompleted);
         //this._text.CharacterPrinted.AddListener(this.HandleCharacterPrinted); useless for now
-        this.printNextButton.onClick.AddListener(this.HandlePrintNextClicked);
+        this._printNextButton.onClick.AddListener(this.HandlePrintNextClicked);
+
+        _text.gameObject.SetActive(false);
+
+
+        //_momSprite = (Sprite)AssetDatabase.LoadAssetAtPath(" CORRECT PATH ", typeof(Sprite)); 
+        //_dadSprite = (Sprite)AssetDatabase.LoadAssetAtPath(" CORRECT PATH ", typeof(Sprite));   <-- Add paths to correct speaker sprites when added to project
+        //_girlSprite = (Sprite)AssetDatabase.LoadAssetAtPath(" CORRECT PATH ", typeof(Sprite));      temporary sprites added for debug purposes mom = unity, dad = git, girl = tree
+
+
+
     }
 
     [Button("test dialog")]
-    public void PlayDialog(string dialogName = "bruh")
+    public void PlayDialog(string dialogName = "swag")
     {
-        DialogMaker gdfriend = null;
+        DialogMaker dialogMaker = null;
         DialogMaker[] list = Resources.FindObjectsOfTypeAll<DialogMaker>();
 
         foreach (var item in list)
         {
             if (item.name == dialogName)
             {
-                gdfriend = item;
+                dialogMaker = item;
             }
         }
 
 
-        if (gdfriend == null)
+        if (dialogMaker == null)
         {
             Debug.Log("dialog not found");
             return;
         }
-        gdfriend.Load();
+        dialogMaker.Load();
 
-        foreach (var key in gdfriend.SentencesKEYS)
+
+
+        switch (dialogMaker.Speaker)
         {
-            foreach (var row in gdfriend.rowList)
+            case SPEAKERS.MOM:
+                _speakerImage.sprite = _momSprite;
+                break;
+            case SPEAKERS.DAD:
+                _speakerImage.sprite = _dadSprite;
+                break;
+            case SPEAKERS.GIRL:
+                _speakerImage.sprite = _girlSprite;
+                break;
+            case SPEAKERS.HIDDEN:
+                break;
+            case SPEAKERS.NARRATOR:
+                break;
+            default:
+                break;
+        }
+
+        foreach (var key in dialogMaker.SentencesKEYS)
+        {
+            foreach (var row in dialogMaker.rowList)
             {
                 if (row.KEY == key)
                 {
@@ -87,11 +131,12 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
+        
+        ShowDialog();
         PrintText();
     }
 
-    private void HandlePrintNextClicked()
+    public void HandlePrintNextClicked()
     {
         if (_text.IsSkippable() && _text.IsTyping)
         {
@@ -105,7 +150,14 @@ public class GameManager : MonoBehaviour
 
     private void PrintText()
     {
-        if (_dialogStrings.Count == 0) return;
+        if (_dialogStrings.Count == 0)
+        {
+            if (_isTextActive)
+            {
+                HideDialog();
+            }
+            return;
+        } 
 
         _text.TypeText(_dialogStrings.Dequeue());
     }
@@ -132,4 +184,25 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("TypeText Complete");
     }
+
+    private void ShowDialog()
+    {
+        _isTextActive = true;
+        _text.gameObject.SetActive(true);
+        _text.GetComponent<Transform>().DOMove(new Vector2(_text.GetComponent<Transform>().position.x, _text.GetComponent<Transform>().position.y + 630), 0.5f);
+    }
+
+    private void HideDialog()
+    {
+        _isTextActive = false;
+        _text.GetComponent<Transform>().DOMove(new Vector2(_text.GetComponent<Transform>().position.x, _text.GetComponent<Transform>().position.y - 630), 0.5f);
+        StartCoroutine(DissapearText());
+    }
+
+    private IEnumerator DissapearText()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _text.gameObject.SetActive(false);
+    }
+
 }

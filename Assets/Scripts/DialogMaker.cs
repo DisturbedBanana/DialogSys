@@ -21,11 +21,9 @@ public class DialogMaker : ScriptableObject
     }
     [HorizontalLine(color: EColor.Blue)]
 
-    [Header("SPEAKER 1 IS THE FIRST ONE TO TALK, FROM THERE IT SWAPS BETWEEN EACH SENTENCE")]
-    [Header("INPUT THE PLAIN NAME OF THE SPEAKER, EXAMPLE : NICOLAS")]
+    [Header("Choose Speaker, image will be displayed in game")]
     [Space(30)]
-    public string Speaker1;
-    public string Speaker2;
+    public GameManager.SPEAKERS Speaker;
     [HorizontalLine(color: EColor.Blue)]
 
     [Space(30)]
