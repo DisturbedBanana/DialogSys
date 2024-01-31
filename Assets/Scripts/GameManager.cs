@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] TextTyper _text;
     [SerializeField] AudioClip _typingSound ;
-    [SerializeField] Button _printNextButton;
     [SerializeField] Image _speakerImage;
 
     [SerializeField] private Sprite _momSprite;
@@ -51,7 +50,6 @@ public class GameManager : MonoBehaviour
     {
         this._text.PrintCompleted.AddListener(this.HandlePrintCompleted);
         //this._text.CharacterPrinted.AddListener(this.HandleCharacterPrinted); useless for now
-        this._printNextButton.onClick.AddListener(this.HandlePrintNextClicked);
 
         _text.gameObject.SetActive(false);
 
@@ -131,7 +129,8 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        
+
+        TouchManager.instance.IsDialogInProgress = true;
         ShowDialog();
         PrintText();
     }
@@ -203,6 +202,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         _text.gameObject.SetActive(false);
+        TouchManager.instance.IsDialogInProgress = false;
     }
 
 }

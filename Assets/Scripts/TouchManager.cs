@@ -24,8 +24,9 @@ public class TouchManager : MonoBehaviour
     private InteractableObject _lastSelectedObject;
 
     private bool _isUsingLens = false;
-    private SpriteRenderer _lensSprite;
     private bool _isPreviewingObject = false;
+    private bool _isDialogInProgress = false;
+    private SpriteRenderer _lensSprite;    
     private Vector2 _basePosition;
     private Vector2 _baseScale;
     private Vector2 _previewScale;
@@ -33,16 +34,17 @@ public class TouchManager : MonoBehaviour
 
     private List<GameObject> _currentCombination = new List<GameObject>();
 
-    public static TouchManager Instance { get; private set; }
+    public static TouchManager instance { get; private set; }
+    public bool IsDialogInProgress { set => _isDialogInProgress = value; }
 
     private void OnEnable()
     {
-        if (Instance != null)
+        if (instance != null)
         {
             Destroy(gameObject);
             return;
         }
-        Instance = this;
+        instance = this;
         EnhancedTouchSupport.Enable();
         ETouch.onFingerDown += OnInputStarted;
         ETouch.onFingerUp += OnInputStopped;
@@ -56,10 +58,16 @@ public class TouchManager : MonoBehaviour
 
     private void OnInputStarted(Finger finger)
     {
+        if (_isDialogInProgress)
+        {
+            GameManager.instance.HandlePrintNextClicked();
+            return;
+        }
+
         if (_isPreviewingObject)
         {
-            _lastSelectedObject.transform.DOMove(_basePosition, _touchedObjectScaleSpeed);
-            _lastSelectedObject.transform.DOScale(_baseScale, _touchedObjectScaleSpeed);
+            _lastSelectedObject.transform.DOMove(_basePosition, 0);
+            _lastSelectedObject.transform.DOScale(_baseScale, 0);
             _isPreviewingObject = false;
             return;
         }
@@ -115,8 +123,9 @@ public class TouchManager : MonoBehaviour
                 else if (_selectedObject.gameObject.CompareTag("Help"))
                 {
                     Debug.Log("This is the help menu");
+                    GameManager.instance.PlayDialog("hinttest");
                 }
-                
+
                 else
                 {
                     _basePosition = _selectedObject.transform.position;
