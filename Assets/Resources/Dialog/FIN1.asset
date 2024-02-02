@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04c4036782c85146b5308a2513efa6c, type: 3}
+  m_Name: FIN1
+  m_EditorClassIdentifier: 
+  dialogName: FIN1
+  Speaker: 2
+  SentencesKEYS:
+  - ASSOML1
+  - ASSOML2
+  _availableKeys:
+  - INTRO1
+  - INTRO2
+  - INTRO3
+  - INTRO4
+  - APPA1
+  - APPA2
+  - APPA3
+  - APPA4
+  - APPA5
+  - NOACCESS
+  - AIDE1
+  - PELUCH
+  - LIT
+  - ESPACE
+  - LIVRES
+  - TABOUR
+  - PIEDS
+  - TAPIS
+  - DEHORS
+  - TIROIR
+  - MAISON
+  - BURO
+  - BUROMM1
+  - BUROMM2
+  - AIDE2
+  - COFFRE
+  - COFFREO1
+  - COFFREO2
+  - AIDE3
+  - TRAV
+  - FUTUR1
+  - FUTUR2
+  - FUTUR3
+  - FUTUR4
+  - AIDE4
+  - POSTER
+  - LITF
+  - PIEDSF
+  - CARTON
+  - BOUGIE
+  - BEAUTE
+  - TAPISF
+  - TEMPS
+  - ARMOIR1
+  - ARMOIR2
+  - ARMOIR3
+  - AIDE5
+  - JOURNAL1
+  - JOURNAL2
+  - JOURNAL3
+  - AIDE6
+  - MOBILE
+  - MOBILEO1
+  - MOBILEO2
+  - MOBILEO3
+  - AIDE7
+  - ASSOML1
+  - ASSOML2
+  - MAMAN
+  - PAPA
+  - ???
+  - PATRIK
+  - FIN1
+  - FIN2
+  - FIN3
+  csv: {fileID: 4900000, guid: 172a06cc5fad6cb49ad113c66c7a5ba7, type: 3}

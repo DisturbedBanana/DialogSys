@@ -1,0 +1,66 @@
+ID;KEY;FR;EN
+0;INTRO1;Je ne vois rien…;I don’t see anything
+1;INTRO2;Comment suis-je arrive la ?;How did I get here?
+2;INTRO3;Mais…<delay = 1></delay> 2 secondes…;Wait…<delay = 1></delay> 2 seconds…
+3;INTRO4;Qui suis-je ?!;Who am I?!
+4;APPA1;Je suis dans une chambre ?;Am I in a room?
+5;APPA2;Qu'est ce que c'est charmant…;How lovely...
+6;APPA3;Bon voyons voir ailleurs.;"Well; let's look elsewhere."
+7;APPA4;Je ne peux pas bouger ?;Can’t I just move?
+8;APPA5;Je me contenterai de cette chambre...;I’ll settle for this room...
+9;NOACCESS;<i>Cela me servira plus tard</i>;<i>This will be of use later</i>
+10;AIDE1;Il y a beaucoup de dessins sur le bureau.;There's a lot of drawings on the desk.
+11;PELUCH;Qu'elles sont adorables ces peluches !;These soft toys really are adorable ! :3
+12;LIT;J'aimerais tellement m'allonger dessus !;I wish I could lie down on it!
+13;ESPACE;Etre interesse par les étoiles si jeune !;So young and already into stars ! WoW
+14;LIVRES;Je me demande si ces livres ont servis…;I’m wondering if those books have been used...
+15;TABOUR;Un tabouret ? Ses parents sont horribles !;A stool? Her parents are horrible!
+16;PIEDS;Se sont…<delay = 1></delay> mes pieds ?!;Are… <delay = 1></delay> my feet?!
+17;TAPIS;Nettoyer ce tapis dois être une torture !;Cleaning this carpet must be torture!
+18;DEHORS;Sortir dehors.<delay = 1></delay> Un concept impossible.;Go outside. <delay = 1></delay> An impossible concept.
+19;TIROIR;Des jouets oublies doivent s'y trouver.;Forgotten toys must be there.
+20;MAISON;Qu'elle est mignonne cette maisonnette.;How cute this little house is.
+21;BURO;Qu'y a-t-il sur ce <b>dessin</b> ?;What’s in that <b>drawing</b>?
+22;BUROMM1;Tu veux un smoothie ma chérie ?;"You want a smoothie; honey?"
+23;BUROMM2;Tient comme tu aimes: <b>Banane Myrtille</b>;There just as you like it: <b>Blueberry Banana</b>
+24;AIDE2;"La mère à parle de <b>""banane myrtille""</b>.";The mother talked about <b>Banana and Blueberry</b> right?
+25;COFFRE;Des aliments ? Qui en a parle deja ?;Food? Who talked about it?
+26;COFFREO1;Retour vers le futur ? C'est marrant.;Back to the future? It’s funny.
+27;COFFREO2;J'aimerais aussi aller dans le <b>futur</b>.;I would also like to go into the <b>future</b>.
+29;AIDE3;Ce livre et l'horloge devraient m'aider.;The book and the clock should both help me.
+30;TRAV;Le temps...<delay = 1></delay> je pense pouvoir tenter...;Time...<delay = 1></delay> Maybe I can try...
+31;FUTUR1;Mon dieu ! J'ai reussi ! J'y crois pas !;My god! I did it! I can’t believe it!
+32;FUTUR2;Bon je suis toujours au même endroit.;But I’m still in the same place.
+33;FUTUR3;Cette chambre n'a pas tant changé.;This room hasn’t changed that much.
+34;FUTUR4;Voyons voir ce qu'on peut y trouver.;Let’s see what we can find there.
+35;AIDE4;Quelle jolie robe dans cette armoire !;The dress in the dressing really is beautiful !
+36;POSTER;Une affiche de groupe. De la K-Pop ?;A band poster? Is it K-POP?
+37;LITF;Le lit a double de taille ! o_O;A king sized bed ! o_O
+38;PIEDSF;Ou est passe le deuxieme noeud ?!;Where did the second knot go?
+39;CARTON;Une chance que je n'y sois pas !;Lucky of me to not be in it!
+40;BOUGIE;Des...<delay = 1></delay> bougies parfumées ?;Perfumed...<delay = 1></delay> Perfumed candles?
+41;BEAUTE;Une regle de survie pour les ados.;A survival rule for teenagers.
+42;TAPISF;Tu est le seul survivant mon petit.;You're the last one standing little one.
+43;TEMPS;J'ai encore du mal a voyager. :(;I still struggle when traveling. :(
+44;ARMOIR1;Une carte d'invitation ?;An invite card?
+45;ARMOIR2;Qui est ce Mr. Prepost ?;Who's this Mr.Prepost?
+47;ARMOIR3;Je dois chercher des informations. ;I need to look for informations.
+48;AIDE5;Un journal doit être une source fiable.;Newspapers should be a reliable source.
+49;JOURNAL1;De l'encre renversée pas de chance...;Spilled ink.. Unlucky...
+50;JOURNAL2;Qu'est ce que c'est que ce dessin ?;What is this drawing?
+51;JOURNAL3;Ou c'est peut être un <b>code</b> ?;Or maybe is it a <b>code</b> ?
+52;AIDE6;Le téléphone doit avoir un rapport;The phone has to be related
+53;MOBILE;Encore un code ? 0 en originalité...;Another code? Talk about diversity...
+54;MOBILEO1;Pardon ? Un rituel satanique ?;Excuse me? A satanic rite?
+55;MOBILEO2;Dite moi que c'est une blague !;You have to be kidding me !
+56;MOBILEO3;Attend elle disait quoi la lettre ?;Wait what did the letter say?
+57;AIDE7;Le téléphone et la lettre. Maintenant.;The phone and the letter. Now
+58;ASSOML1;Elle est allée voir ces malades ?!;She went to see those crazy people?
+59;ASSOML2;Je... je me sent pas bien...;I..I don't feel so good...
+60;MAMAN;Je n'aime pas ça ma chérie...;I don't like this honey...
+61;PAPA;C'est des mauvaises fréquentations !;Those are bad company !
+62;???;Que le sacrifice se mette en marche !;Should the sacrifice begin !
+63;PATRIK;Désolé... Que ton âme soit sauve...;Sorry.. For your soul to be free..
+64;FIN1;Mais...<delay = 1></delay> Ce sont mes souvenirs ?! ;But.. <delay = 1></delay> Are those my memories??!
+65;FIN2;Je...<delay = 1></delay> Je suis morte...<delay = 1></delay> Non pitié...;I..<delay = 1></delay>I am dead...<delay = 1></delay> This can't be...
+66;FIN3;S'il vous plait... <delay = 1></delay> Venez m'aider...!;Please...<delay = 1></delay> Help me...!

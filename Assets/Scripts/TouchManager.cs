@@ -1,9 +1,11 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem.EnhancedTouch;
+using UnityEngine.UI;
 using ETouch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 
 public class TouchManager : MonoBehaviour
@@ -23,16 +25,14 @@ public class TouchManager : MonoBehaviour
     InteractableObject _selectedObject;
     private InteractableObject _lastSelectedObject;
 
+    public bool isPreviewingObject = false;
+    public bool shouldTriggerNextStep = false;
     private bool _isUsingLens = false;
-    private bool _isPreviewingObject = false;
     private bool _isDialogInProgress = false;
     private SpriteRenderer _lensSprite;    
-    private Vector2 _basePosition;
-    private Vector2 _baseScale;
-    private Vector2 _previewScale;
-    private Vector2 _previewPosition = new Vector2(0, 0);
 
     private List<GameObject> _currentCombination = new List<GameObject>();
+    public List<Image> previewedImagesList = new List<Image>();
 
     public static TouchManager instance { get; private set; }
     public bool IsDialogInProgress { set => _isDialogInProgress = value; }
@@ -64,11 +64,15 @@ public class TouchManager : MonoBehaviour
             return;
         }
 
-        if (_isPreviewingObject)
+        if (isPreviewingObject)
         {
-            _lastSelectedObject.transform.DOMove(_basePosition, 0);
-            _lastSelectedObject.transform.DOScale(_baseScale, 0);
-            _isPreviewingObject = false;
+            foreach (var item in previewedImagesList)
+            {
+                item.GetComponent<Image>().DOFade(0, 1.5f).OnComplete(() => CallNextStep());
+            }
+            previewedImagesList.Clear();
+            isPreviewingObject = false;
+
             return;
         }
         
@@ -95,6 +99,7 @@ public class TouchManager : MonoBehaviour
                 if (_magnifyingLensCombinations.CheckCombination(_currentCombination))
                 {
                     Debug.Log("Combination found");
+                    CompletionManager.instance.NextStep();
                 }
                 else
                 {
@@ -107,35 +112,53 @@ public class TouchManager : MonoBehaviour
                     item.GetComponent<SpriteRenderer>().material = _baseObjectMaterial;
                 }
                 _currentCombination.Clear();
+                return;
             }
             
         }
         else
         {
-            if (!_isPreviewingObject)
+            if (!isPreviewingObject)
             {
-                if (_selectedObject.gameObject.CompareTag("Lens"))
+                switch (_selectedObject.gameObject.tag)
                 {
-                    _lensSprite = _selectedObject.GetComponent<SpriteRenderer>();
-                    _isUsingLens = true;
-                    _lensSprite.color = Color.red;
-                }
-                else if (_selectedObject.gameObject.CompareTag("Help"))
-                {
-                    Debug.Log("This is the help menu");
-                    GameManager.instance.PlayDialog("hinttest");
+                    case "Lens":
+                        _lensSprite = _selectedObject.GetComponent<SpriteRenderer>();
+                        _isUsingLens = true;
+                        _lensSprite.color = Color.red;
+                        break;
+                    case "Help":
+                        Debug.Log("This is the help menu");
+                        GameManager.instance.PlayDialog("AIDE4",false);
+                        break;
+                    case "TIROIR":
+                        GameManager.instance.PlayDialog("TIROIR");
+                        _selectedObject.enabled = false;
+                        break;
+                    case "DECOR":
+                        _selectedObject.CallDialog();
+                        break;
+                    case "COFFRE":
+                        CompletionManager.instance.NextStep();
+                        break;
+                    case "ARMOIRE":
+                        GameManager.instance.PlayDialog("ARMOIRE");
+                        CompletionManager.instance.NextStep();
+                        break;
+                    case "BUREAU":
+                        GameManager.instance.PlayDialog("BUREAU");
+                        _selectedObject.enabled = false;
+                        CompletionManager.instance.NextStep();
+                        break;
+                    case "TELEPHONE":
+                        GameManager.instance.PlayDialog("TELEPHONE");
+                        CompletionManager.instance.NextStep();
+                        break;
+                    default:
+                        break;
                 }
 
-                else
-                {
-                    _basePosition = _selectedObject.transform.position;
-                    _selectedObject.GetComponent<Transform>().DOMove(_previewPosition, _touchedObjectScaleSpeed);
-                    _selectedObject.GetComponent<Transform>().DOScale(_touchedObjectScaleMultiplier, _touchedObjectScaleSpeed);
-                    _lastSelectedObject = _selectedObject;
-                    _baseScale = _selectedObject.transform.localScale;
-                    _previewScale = _baseScale * _touchedObjectScaleMultiplier;
-                    _isPreviewingObject = true;
-                }
+
             }
         }
 
@@ -162,5 +185,14 @@ public class TouchManager : MonoBehaviour
         }
         
         return colliders[closestIndex];
+    }
+
+    private void CallNextStep()
+    {
+        if (shouldTriggerNextStep)
+        {
+            CompletionManager.instance.NextStep();
+            shouldTriggerNextStep = false;
+        }
     }
 }

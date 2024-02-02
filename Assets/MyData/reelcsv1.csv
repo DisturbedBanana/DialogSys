@@ -1,0 +1,42 @@
+ID;KEY;FR;EN
+0;INTRO1;Je ne vois rien…;I don’t see anything
+1;INTRO2;Comment suis-je arrive la ?;How did I get here?
+2;INTRO3;Mais…<delay = 1></delay> 2 secondes…;Wait…<delay = 1></delay> 2 seconds…
+3;INTRO4;Qui suis-je ?!;Who am I?!
+4;APPA1;Je suis dans une chambre ?;Am I in a room?
+5;APPA2;Qu'est ce que c'est charmant…;How lovely...
+6;APPA3;Bon voyons voir ailleurs.;"Well; let's look elsewhere."
+7;APPA4;Je ne peux pas bouger ?;Can’t I just move?
+8;APPA5;Je me contenterai de cette chambre<delay = 1>…</delay>;I’ll settle for this room...
+9;DECOR1;Qu'elles sont adorables ces peluches ! :3;These soft toys really are adorable ! :3
+10;DECOR2;J'aimerais tellement m'allonger dessus !;I wish I could lie down on it!
+11;DECOR3;Etre interesse par les étoiles si jeune ! WoW;So young and already into stars ! WoW
+12;DECOR4;Je me demande si ces livres ont servis…;I’m wondering if those books have been used...
+13;DECOR5;Un tabouret ? Ses parents sont horribles !;A stool? Her parents are horrible!
+14;DECOR6;Se sont…<delay = 1></delay> mes pieds ?!;Are… <delay = 1></delay> my feet?!
+15;DECOR7;Nettoyer ce tapis dois être une torture !;Cleaning this carpet must be torture!
+16;DECOR8;Sortir dehors.<delay = 1></delay> Un concept impossible.;Go outside. <delay = 1></delay> An impossible concept.
+17;DECOR9;Des jouets oublies doivent s'y trouver.;Forgotten toys must be there.
+18;DECOR10;Qu'elle est mignonne cette maisonnette.;How cute this house is.
+19;NOACCESS;<i>Cela me servira plus tard</i>;<i>This will be of use later</i>
+20;BURO;Qu'y a-t-il sur ce <b>dessin</b> ?;What’s in that <b>drawing</b>?
+21;BUROMM1;Tu veux un smoothie ma chérie ?;"You want a smoothie; honey?"
+22;BUROMM2;Tient comme tu aimes: <b>Banane Myrtille</b>;There just as you like it: <b>Blueberry Banana</b>
+23;COFFRE;Des aliments ? Qui en a parle deja ?;Food? Who ever talked about it?
+24;COFFREO1;Retour vers le futur ? C'est marrant.;Back to the future? It’s funny.
+25;COFFREO2;J'aimerais aussi aller dans le <b>futur</b>.;I would also like to go into the <b>future</b>.
+26;TRAV;Le temps...<delay = 1></delay> je pense pouvoir tenter...;Time...<delay = 1></delay> Maybe I can try...
+27;FUTUR1;Mon dieu ! J'ai réussi ! J'y crois pas !;My god! I did it! I can’t believe it!
+29;FUTUR2;Bon je suis toujours au même endroit.;But I’m still in the same place.
+30;FUTUR3;Cette chambre n'a pas tant changé.;This room hasn’t changed that much.
+31;FUTUR4;Voyons voir ce qu'on peut y trouver.;Let’s see what we can find there.
+32;POSTER;Une affiche de groupe. De la K-Pop ?;
+33;LITF;Le lit à double de taille ! o_O;
+34;PIEDSF;Ou est passe le deuxieme noeud ?!;
+35;CARTON;Une chance que je n'y sois pas !;
+36;BOUGIE;Des...<delay = 1></delay> bougies parfumés ?;
+37;BEAUTE;Une regle de survie pour les ados.;
+38;TAPISF;Tu est le seul survivant mon petit.;
+39;TEMPS;J'ai encore du mal a voyager. :(;
+40;;;
+41;;;

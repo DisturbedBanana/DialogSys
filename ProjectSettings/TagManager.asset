@@ -8,6 +8,15 @@ TagManager:
   - TestItem1
   - TestItem2
   - Help
+  - DECOR
+  - TIROIR
+  - COFFRE
+  - CASSETTE
+  - HORLOGE
+  - ARMOIRE
+  - BUREAU
+  - TELEPHONE
+  - LETTER
   layers:
   - Default
   - TransparentFX
@@ -42,6 +51,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 1944503399
+    locked: 0
+  - name: LensAndInterrogation
+    uniqueID: 3578809467
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

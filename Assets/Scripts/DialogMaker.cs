@@ -3,9 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.UIElements;
+//using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.UIElements;
 using static UnityEngine.Rendering.DebugUI;
 
 [CreateAssetMenu(fileName = "DialogMaker", menuName = "Scripts/DialogMaker", order = 1)]
@@ -17,7 +16,7 @@ public class DialogMaker : ScriptableObject
     [Button("Update File Name")]
     public void ChangeFileName()
     {
-        AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(this), dialogName);
+        //AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(this), dialogName);
     }
     [HorizontalLine(color: EColor.Blue)]
 
@@ -60,7 +59,6 @@ public class DialogMaker : ScriptableObject
             row.KEY = grid[i][1];
             row.FR = grid[i][2];
             row.EN = grid[i][3];
-            row.SP = grid[i][4];
 
             rowList.Add(row);
         }
